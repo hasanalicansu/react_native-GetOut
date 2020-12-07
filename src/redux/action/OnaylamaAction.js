@@ -9,7 +9,7 @@ export const GetOnaylama = () => {
     try {
       const userToken = await AsyncStorage.getItem('token');
       const res = await axios.get(
-        'http://localhost:3000/api/arkadas/istekgetir',
+        'https://nameless-ocean-22153.herokuapp.com/api/arkadas/istekgetir',
         {
           headers: {
             Authorization: 'Bearer ' + userToken,
@@ -34,7 +34,7 @@ const refreshData= async()=>{
   try {
     const userToken = await AsyncStorage.getItem('token');
       const res = await axios.get(
-        'http://localhost:3000/api/arkadas/istekgetir',
+        'https://nameless-ocean-22153.herokuapp.com/api/arkadas/istekgetir',
         {
           headers: {
             Authorization: 'Bearer ' + userToken,
@@ -52,7 +52,7 @@ export const SendTrue = (_id) => {
    try {
     const userToken = await AsyncStorage.getItem('token');
     const res = await axios.get(
-      'http://localhost:3000/api/arkadas/istek/onay/'+_id,
+      'https://nameless-ocean-22153.herokuapp.com/api/arkadas/istek/onay/'+_id,
       {
         headers: {
           Authorization: 'Bearer ' + userToken,
@@ -74,7 +74,7 @@ export const SendFalse = (_id) => {
    try {
     const userToken = await AsyncStorage.getItem('token');
     const res = await axios.get(
-      'http://localhost:3000/api/arkadas/istek/red/'+_id,
+      'https://nameless-ocean-22153.herokuapp.com/api/arkadas/istek/red/'+_id,
       {
         headers: {
           Authorization: 'Bearer ' + userToken,

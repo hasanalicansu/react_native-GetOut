@@ -8,7 +8,7 @@ import axios from 'axios';
 export const GetFriends =  () => {
   return async (dispatch) => {
     const userToken = await AsyncStorage.getItem('token');
-    const res = await axios.get('http://localhost:3000/api/arkadas/get', {
+    const res = await axios.get('https://nameless-ocean-22153.herokuapp.com/api/arkadas/get', {
       headers: {
         Authorization: "Bearer "+userToken,
       },
@@ -23,7 +23,7 @@ export const DeleteFriends = (dellId) => {
     try {
       const userToken = await AsyncStorage.getItem('token');
       const res = await axios.get(
-      'http://localhost:3000/api/arkadas/arkadasSil/'+dellId,
+      'https://nameless-ocean-22153.herokuapp.com/api/arkadas/arkadasSil/'+dellId,
       {
         headers: {
           Authorization: 'Bearer ' + userToken,

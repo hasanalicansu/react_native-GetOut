@@ -18,7 +18,7 @@ export const loginUser = ({email, password}) => {
     } else {
       axios({
         method: 'post',
-        url: 'http://localhost:3000/api/users/login',
+        url: 'https://nameless-ocean-22153.herokuapp.com/api/users/login',
         data: {
           email: email,
           sifre: password,
@@ -55,7 +55,7 @@ export const RegisterUser = ({isim, userName, email, password}) => {
     
 
       const res = await axios.post(
-        'http://localhost:3000/api/users/createAccount',
+        'https://nameless-ocean-22153.herokuapp.com/api/users/createAccount',
         {email: email.toLowerCase(), sifre: password, isim:isim.toLowerCase(), userName: userName.toLowerCase()},
         {
           headers: {
@@ -90,7 +90,7 @@ export const loginWithToken = (token) => {
       //invalid token
 
       const res = await axios.get(
-        'http://localhost:3000/api/users/login/token',
+        'https://nameless-ocean-22153.herokuapp.com/api/users/login/token',
         {
           headers: {
             Authorization: 'Bearer ' + token,

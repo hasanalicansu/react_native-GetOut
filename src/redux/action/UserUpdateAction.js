@@ -18,7 +18,7 @@ export const UserDataGetAction = () => {
 const DataGet = async () => {
   try {
     const userToken = await AsyncStorage.getItem('token');
-    const res = await axios.get('http://localhost:3000/api/durum/get/', {
+    const res = await axios.get('https://nameless-ocean-22153.herokuapp.com/api/durum/get/', {
       headers: {
         Authorization: 'Bearer ' + userToken,
       },
@@ -35,7 +35,7 @@ export const UserDataUpdateAction = (note, cikma) => {
     try {
       const userToken = await AsyncStorage.getItem('token');
       const update = await axios.patch(
-        'http://localhost:3000/api/durum',
+        'https://nameless-ocean-22153.herokuapp.com/api/durum',
         {text: note, durum: cikma},
         {
           headers: {

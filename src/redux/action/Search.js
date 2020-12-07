@@ -16,7 +16,7 @@ export const SearchUser = (name) => {
     } else {
       try {
         const userToken = await AsyncStorage.getItem('token');
-        const res = await axios.get('http://localhost:3000/api/arkadas/arama/'+name.toLowerCase(), {
+        const res = await axios.get('https://nameless-ocean-22153.herokuapp.com/api/arkadas/arama/'+name.toLowerCase(), {
         headers: {
           Authorization: "Bearer "+userToken,
         },
@@ -45,7 +45,7 @@ export const AddFriend = (friendsId) => {
   return async(dispatch)=>{
     try {
       const userToken = await AsyncStorage.getItem('token');
-      const res = await axios.get('http://localhost:3000/api/arkadas/istek/'+friendsId, {
+      const res = await axios.get('https://nameless-ocean-22153.herokuapp.com/api/arkadas/istek/'+friendsId, {
       headers: {
         Authorization: "Bearer "+userToken,
         },
