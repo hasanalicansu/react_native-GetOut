@@ -13,7 +13,8 @@ export const GetFriends =  () => {
         Authorization: "Bearer "+userToken,
       },
     });
-    console.log(res.data.mesaj);
+    
+    
     dispatch({type: GET_FRIENDS, payload: res.data.mesaj})
   };
 };

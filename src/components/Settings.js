@@ -105,9 +105,9 @@ class Settings extends Component {
         
         <View style={{flex: 1, justifyContent: 'flex-end'}}>
           <Button
-            style={{alignSelf: 'center'}}
+            style={{alignSelf: 'center',paddingHorizontal:20}}
             onPress={() => this.props.SearchUser(this.state.name)}>
-            <Text>Search</Text>
+            <Text>ARA</Text>
           </Button>
         </View>
       </View>

@@ -18,8 +18,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 class LoginPage extends Component {
   state = {
-    email: 'hasan@test.com',
-    password: '123456',
+    email: '',
+    password: '',
   };
 
   sendUser() {
@@ -36,10 +36,9 @@ class LoginPage extends Component {
     }
   }
 
-  componentDidMount (){
-    token=this.tokenSorgu()
-    if (token!=null) {
-      console.log("çalıştı")
+  async componentDidMount (){
+    const token = await AsyncStorage.getItem('token');
+    if (token) {
       this.props.loginWithToken(token)
     } else {
       null

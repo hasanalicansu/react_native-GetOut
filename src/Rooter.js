@@ -21,7 +21,7 @@ function Home() {
     <Tab.Navigator>
       <Tab.Screen
         options={{
-          title: 'FRIENDS',
+          title: 'ARKADAŞLARIM',
           tabBarIcon: () => (
             <Image
               style={{width: 40, height: 40}}
@@ -34,7 +34,7 @@ function Home() {
       />
       <Tab.Screen
         options={{
-          title: 'ADD',
+          title: 'EKLE',
           tabBarIcon: () => (
             <Image
               style={{width: 30, height: 30}}
@@ -47,7 +47,7 @@ function Home() {
       />
       <Tab.Screen
         options={{
-          title: 'SETTİNGS',
+          title: 'DURUM',
           tabBarIcon: () => (
             <Image
               style={{width: 40, height: 40}}
@@ -60,7 +60,7 @@ function Home() {
       />
         <Tab.Screen
         options={{
-          title: 'İstekler',
+          title: 'İSTEKLER',
           tabBarIcon: () => (
             <Image
               style={{width: 40, height: 40}}

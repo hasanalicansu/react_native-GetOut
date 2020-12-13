@@ -35,8 +35,6 @@ class Friends extends Component {
     const {modalVisible} = this.state;
     return (
       <SafeAreaView style={{flex: 1}}>
-
-
         {modalVisible == true ? (
           <Modal
             animationType="slide"
@@ -145,141 +143,158 @@ class Friends extends Component {
             </View>
           </Modal>
         ) : null}
-        <FlatList
-          data={this.props.friends}
-          renderItem={({item}) => (
-            <View>
-              <View style={{marginBottom: 20, alignSelf: 'center'}}>
-                {item[0].durum == true ? (
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setModalVisible(true, item[0]);
-                    }}
-                    style={{
-                      shadowColor: '#000',
-                      shadowOffset: {
-                        width: 0,
-                        height: 2,
-                      },
-                      shadowOpacity: 0.25,
-                      shadowRadius: 3.84,
 
-                      elevation: 5,
-                      flexDirection: 'column',
-                      backgroundColor: '#50D2C2',
-                      width: width * 0.9,
-                      paddingVertical: 25,
-                      borderRadius: 5,
-                    }}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-start',
-                        marginLeft: 15,
-                      }}>
-                      <Image
-                        style={{
-                          marginLeft: 20,
-                          alignSelf: 'center',
-                          width: 50,
-                          height: 50,
-                        }}
-                        source={require('./image/profilePhoto.png')}></Image>
-                      <View style={{marginLeft: 15, marginTop: 5}}>
-                        <Text
-                          style={{
-                            fontWeight: 'bold',
-                            color: '#F6F8F8',
-                            fontSize: 16,
-                          }}>
-                          {item[0].isim}
-                        </Text>
-                      </View>
-                    </View>
-                    <View
-                      style={{
-                        alignSelf: 'center',
-                        marginTop: 15,
-                        marginHorizontal: 15,
-                      }}>
-                      <Text
-                        style={{
-                          color: '#F6F8F8',
-                          fontSize: 16,
-                          fontWeight: '500',
-                        }}>
-                        {item[0].text}
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                ) : (
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setModalVisible(true, item[0]);
-                    }}
-                    style={{
-                      shadowColor: '#000',
-                      shadowOffset: {
-                        width: 0,
-                        height: 2,
-                      },
-                      shadowOpacity: 0.25,
-                      shadowRadius: 3.84,
-
-                      elevation: 5,
-                      flexDirection: 'column',
-                      backgroundColor: '#FF85AD',
-                      width: width * 0.9,
-                      paddingVertical: 25,
-                      borderRadius: 5,
-                    }}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-start',
-                        marginLeft: 15,
-                      }}>
-                      <Image
-                        style={{
-                          marginLeft: 20,
-                          alignSelf: 'center',
-                          width: 50,
-                          height: 50,
-                        }}
-                        source={require('./image/profilePhoto.png')}></Image>
-                      <View style={{marginLeft: 15, marginTop: 5}}>
-                        <Text
-                          style={{
-                            fontWeight: 'bold',
-                            color: '#F6F8F8',
-                            fontSize: 16,
-                          }}>
-                          {item[0].isim}
-                        </Text>
-                      </View>
-                    </View>
-                    <View
-                      style={{
-                        alignSelf: 'center',
-                        marginTop: 15,
-                        marginHorizontal: 15,
-                      }}>
-                      <Text
-                        style={{
-                          color: '#F6F8F8',
-                          fontSize: 16,
-                          fontWeight: '500',
-                        }}>
-                        {item[0].text}
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                )}
-              </View>
+        {this.props.friends == 0 ? (
+          
+            <View
+              style={{
+                flex:2,
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection:"column"
+              }}>
+              <Text style={{color:"#E67E22",fontWeight:"900",fontSize:20,textAlign:"center"}}>Merhaba haydi arkadaşlarını bulalım</Text>
+              <Text style={{color:"#E67E22",fontWeight:"900",fontSize:25,textAlign:"center",marginTop:20}}>altta bulunan ekle butonuna basarak arkadaşlarını bulabilirsin</Text>
             </View>
-          )}
-          keyExtractor={(item) => item.id}
-        />
+          
+        ) : (
+          <FlatList
+            data={this.props.friends}
+            renderItem={({item}) => (
+              <View style={{marginTop: 15}}>
+                <View style={{marginBottom: 10, alignSelf: 'center'}}>
+                  {item[0].durum == true ? (
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.setModalVisible(true, item[0]);
+                      }}
+                      style={{
+                        shadowColor: '#000',
+                        shadowOffset: {
+                          width: 0,
+                          height: 2,
+                        },
+                        shadowOpacity: 0.25,
+                        shadowRadius: 3.84,
+
+                        elevation: 5,
+                        flexDirection: 'column',
+                        backgroundColor: '#50D2C2',
+                        width: width * 0.9,
+                        paddingVertical: 25,
+                        borderRadius: 5,
+                      }}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'flex-start',
+                          marginLeft: 15,
+                        }}>
+                        <Image
+                          style={{
+                            marginLeft: 20,
+                            alignSelf: 'center',
+                            width: 50,
+                            height: 50,
+                          }}
+                          source={require('./image/profilePhoto.png')}></Image>
+                        <View style={{marginLeft: 15, marginTop: 5}}>
+                          <Text
+                            style={{
+                              fontWeight: 'bold',
+                              color: '#F6F8F8',
+                              fontSize: 16,
+                            }}>
+                            {item[0].isim}
+                          </Text>
+                        </View>
+                      </View>
+                      <View
+                        style={{
+                          alignSelf: 'center',
+                          marginTop: 15,
+                          marginHorizontal: 15,
+                        }}>
+                        <Text
+                          style={{
+                            color: '#F6F8F8',
+                            fontSize: 16,
+                            fontWeight: '500',
+                          }}>
+                          {item[0].text}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  ) : (
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.setModalVisible(true, item[0]);
+                      }}
+                      style={{
+                        shadowColor: '#000',
+                        shadowOffset: {
+                          width: 0,
+                          height: 2,
+                        },
+                        shadowOpacity: 0.25,
+                        shadowRadius: 3.84,
+
+                        elevation: 5,
+                        flexDirection: 'column',
+                        backgroundColor: '#FF85AD',
+                        width: width * 0.9,
+                        paddingVertical: 25,
+                        borderRadius: 5,
+                      }}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'flex-start',
+                          marginLeft: 15,
+                        }}>
+                        <Image
+                          style={{
+                            marginLeft: 20,
+                            alignSelf: 'center',
+                            width: 50,
+                            height: 50,
+                          }}
+                          source={require('./image/profilePhoto.png')}></Image>
+                        <View style={{marginLeft: 15, marginTop: 5}}>
+                          <Text
+                            style={{
+                              fontWeight: 'bold',
+                              color: '#F6F8F8',
+                              fontSize: 16,
+                            }}>
+                            {item[0].isim}
+                          </Text>
+                        </View>
+                      </View>
+                      <View
+                        style={{
+                          alignSelf: 'center',
+                          marginTop: 15,
+                          marginHorizontal: 15,
+                        }}>
+                        <Text
+                          style={{
+                            color: '#F6F8F8',
+                            fontSize: 16,
+                            fontWeight: '500',
+                          }}>
+                          {item[0].text}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              </View>
+            )}
+            keyExtractor={(item) => item.id}
+          />
+        )}
+
         <View style={{flex: 1}}>
           <Fab
             containerStyle={{}}
@@ -296,8 +311,6 @@ class Friends extends Component {
               source={require('./image/refresh.png')}></Image>
           </Fab>
         </View>
-
-        
       </SafeAreaView>
     );
   }

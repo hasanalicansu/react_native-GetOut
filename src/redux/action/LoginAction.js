@@ -65,7 +65,7 @@ export const RegisterUser = ({isim, userName, email, password}) => {
       );
 
       if (res.status == 206) {
-        console.log(res.data);
+      
         Alert.alert(
           'HATA',
           res.data.mesaj,
@@ -73,8 +73,7 @@ export const RegisterUser = ({isim, userName, email, password}) => {
           {cancelable: false},
         );
       } else if (res.status == 200) {
-        console.log(res.status, res.data.email);
-        console.log('user.status,user.data.mesaj.email');
+        
         registerLoginUser(res.data.email);
       }
 
@@ -87,23 +86,25 @@ export const RegisterUser = ({isim, userName, email, password}) => {
 export const loginWithToken = (token) => {
   return async (dispatch) => {
     try {
-      //invalid token
 
+      const tokenGo= await "Bearer "  + token;
+      
       const res = await axios.get(
         'https://nameless-ocean-22153.herokuapp.com/api/users/login/token',
         {
           headers: {
-            Authorization: 'Bearer ' + token,
+            Authorization: tokenGo
           },
         },
       );
-
       if (
-        res.data.mesaj == 'invalid token' ||
-        res.data.mesaj == 'jwt expired'
+        res.data.mesaj == "invalid token" ||
+        res.data.mesaj == "jwt expired" || res.data.mesaj == "jwt malformed"
       ) {
+        
         return loginFail(dispatch);
       } else {
+        
         return loginSuccess(dispatch);
       }
     } catch (error) {
@@ -121,13 +122,13 @@ const saveData = async (dataName, data) => {
 const readData = async () => {
   try {
     const userToken = await AsyncStorage.getItem('token');
-    console.log(userToken);
+  
     const isim = await AsyncStorage.getItem('isim');
-    console.log(isim);
+    
     const userName = await AsyncStorage.getItem('userName');
-    console.log(userName);
+    
     const email = await AsyncStorage.getItem('email');
-    console.log(email);
+    
   } catch (e) {
     alert('Failed to fetch the data from storage');
   }
